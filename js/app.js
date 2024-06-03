@@ -21,8 +21,9 @@ function sortear() {
     embaralha(amigos);
     let sorteio = document.getElementById('lista-sorteio');
     let diferença = 4 - amigos.length;
+    let elementosDaLista = amigos.length > 2 ? 'amigo' : 'amigos';
     if (amigos.length < 4) {
-        alert(`É preciso ao menos 4 amigos para poder fazer um sorteio. Adicione mais ${diferença} amigos`);
+        alert(`É preciso ao menos 4 amigos para poder fazer um sorteio. Adicione mais ${diferença} ${elementosDaLista}`);
     } else{
 
     for (let i = 0; i < amigos.length; i++) {
