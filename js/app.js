@@ -1,10 +1,16 @@
-let amigos = [];
+var amigos = [];
 
 function adicionar (){
     let amigo = document.getElementById("nome-amigo");
     if (amigo.value == ''){
-        alert('É preciso escrever ao menos 1 caractere')
-    } else {
+        alert('É preciso escrever ao menos 1 caractere');
+        return;
+    }
+
+    if (amigos.includes(amigo.value)){
+        alert('Esse nome já foi selecionado para o sorteio. Por favor, escolha outro nome');
+        return;
+    }
     let lista = document.getElementById("lista-amigos");
     amigos.push(amigo.value);
 
@@ -14,7 +20,6 @@ function adicionar (){
         lista.textContent = lista.textContent + ", " + amigo.value;
     }
     amigo.value= "";
-}
 }
 
 function sortear() {
@@ -49,7 +54,8 @@ function embaralha(lista) {
 }
 
 function reiniciar() {
-    amigos = '';
+    amigos = [];
+    amigos.innerHTML = '';
     document.getElementById('lista-sorteio').innerHTML = '';
     document.getElementById('lista-amigos').innerHTML = '';
 }
